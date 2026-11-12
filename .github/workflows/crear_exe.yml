@@ -1,0 +1,29 @@
+name: Crear ChatBot EXE
+
+on:
+  workflow_dispatch:
+
+jobs:
+  crear-exe:
+    runs-on: windows-latest
+
+    steps:
+      - name: Descargar archivos del repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar PyInstaller
+        run: pip install pyinstaller
+
+      - name: Crear archivo EXE
+        run: pyinstaller --onefile --name ChatBot ChatBot.py
+
+      - name: Guardar ejecutable
+        uses: actions/upload-artifact@v4
+        with:
+          name: ChatBot-Windows
+          path: dist/ChatBot.exe
