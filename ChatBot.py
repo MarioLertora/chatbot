@@ -42,3 +42,5 @@ print(f"Tu pedido de {producto} será despachado a esa dirección.")
 
 print("\nMuchas gracias por tu compra.")
 print("¡Que tengas un excelente día!")
+
+input("\nPresiona Enter para cerrar...")
